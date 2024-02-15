@@ -79,5 +79,17 @@ if st.checkbox('Buscar Restaurant '):
 if st.button('Busqueda Aleatoria'):
     # Selecciona un dato aleatorio del DataFrame
     dato = df.sample()    
-    st.map(dato)
- 
+    nombrea = dato['name'].iloc[0]
+    direcciona = dato['address'].iloc[0]
+    catagoriaa = dato['category'].iloc[0]
+    estrellasa = str(dato['avg_rating'].iloc[0])
+    weba = dato['url'].iloc[0]
+    col5,col6 = st.columns(2)
+    with col5:
+        st.map(dato)
+    with col6:
+        st.write('Nombre Local :', nombrea)
+        st.write('Direccion :', direcciona)
+        st.write('Categoria :', catagoriaa)
+        st.write('Valoracion :', estrellasa)
+        st.write('web :', weba)
